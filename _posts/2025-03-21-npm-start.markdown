@@ -3,8 +3,9 @@ layout: post
 title:  "npm start 中使用 .env 文件的端口配置方法"
 date:   2025-03-21 16:00:00 +0300
 image:  10.jpg
-tags:   前端
+tags:   Resources
 ---
+
 ### 1.首先安装 dotenv：
 ```javascript
 npm install dotenv
