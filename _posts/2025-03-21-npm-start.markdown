@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "npm start 中使用 .env 文件的端口配置方法"
+date:   2025-03-21 16:00:00 +0300
+image:  10.jpg
+tags:   前端
+---
+### 1.首先安装 dotenv：
+```javascript
+npm install dotenv
+```
+### 2.创建 .env 文件：
+```javascript
+PORT=3000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=123456
+```
+### 3.修改 package.json：
+```javascript
+{
+  "scripts": {
+    "start": "node -r dotenv/config app.js"
+  }
+}
+``` 
+### 4.在 app.js 中使用：
+```javascript
+require('dotenv').config()
+
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.listen(port, ()=>{
+    console.log(`服务器运行在端口 ${port}`)
+})
+```
+
+## 使用环境特定的.env文件：
+### 1.创建不同环境的配置文件：
+```javascript
+.env.development
+.env.production
+.env.test
+```
+
+### 2.修改 package.json：
+```javascript
+{
+  "scripts": {
+    "start": "node -r dotenv/config app.js dotenv_config_path=.env.development",
+    "start:prod": "node -r dotenv/config app.js dotenv_config_path=.env.production",
+    "start:test": "node -r dotenv/config app.js dotenv_config_path=.env.test"
+  }
+}
+```
+
+### 3.在 app.js 中使用：
+```javascript
+require('dotenv').config()
+```
