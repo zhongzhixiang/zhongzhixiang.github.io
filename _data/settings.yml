@@ -9,7 +9,7 @@ description: Welcome to my personal blog
 # Author Settings
 author:
   name: Zhixiang Zhong
-  image: 01.jpg
+  image: me.jpg
   say-hello: Hello, I’m <strong>ChiHeung</strong>
   bio: 分享个人<strong>前端开发</strong>, <strong>系统运维</strong>以及其他IT相关文章。
 
